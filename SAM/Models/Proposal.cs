@@ -1,0 +1,56 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
+
+namespace SAM.Models
+{
+    public class Proposal
+    {
+        [Required(ErrorMessage = "Please type Organization Name.")]
+        public string OrganName { get; set; }
+
+
+        [Key]
+        public string DocNo { get; set; }
+
+        [Required(ErrorMessage = "Please type Date.")]
+        public DateTime Date { get; set; }
+
+        [Required(ErrorMessage = "Please type Subject.")]
+        public string Subject { get; set; }
+
+        [Required(ErrorMessage = "Please type Activity Name.")]
+        public string ActName { get; set; }
+
+        [Required(ErrorMessage = "Please type Start Date.")]
+        public DateTime StartDate { get; set; }
+
+        [Required(ErrorMessage = "Please type End Date.")]
+        public DateTime EndDate { get; set; }
+
+        [Required(ErrorMessage = "Please type Place.")]
+        public string Place { get; set; }
+
+
+        public double StdBudget { get; set; }
+        public string OthName { get; set; }
+        public double OthBudget { get; set; }
+
+
+
+        [Required(ErrorMessage = "Please type Total.")]
+        public double Total { get; set; }
+
+        public int Act1 { get; set; }
+        public int Act2 { get; set; }
+        public int Act3 { get; set; }
+        public int Act4 { get; set; }
+        public int Act5 { get; set; }
+        public int Act6 { get; set; }
+
+        [Required(ErrorMessage = "Please type URL File")]
+        public string UrlFile { get; set; }
+    }
+}

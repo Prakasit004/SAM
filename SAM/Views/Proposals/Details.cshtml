@@ -1,0 +1,162 @@
+﻿@model SAM.Models.Proposal
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Proposal</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrganName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrganName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Place)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Place)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StdBudget)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StdBudget)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OthName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OthName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OthBudget)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OthBudget)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Act1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Act1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Act2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Act2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Act3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Act3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Act4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Act4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Act5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Act5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Act6)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Act6)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrlFile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrlFile)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DocNo }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
