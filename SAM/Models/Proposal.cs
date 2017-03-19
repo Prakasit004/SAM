@@ -11,10 +11,12 @@ namespace SAM.Models
         [Required(ErrorMessage = "Please type Organization Name.")]
         public string OrganName { get; set; }
 
-
         [Key]
         public string DocNo { get; set; }
 
+        [Display(Name = "Date")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "Please type Date.")]
         public DateTime Date { get; set; }
 
@@ -24,9 +26,15 @@ namespace SAM.Models
         [Required(ErrorMessage = "Please type Activity Name.")]
         public string ActName { get; set; }
 
+        [Display(Name = "StartDate")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "Please type Start Date.")]
         public DateTime StartDate { get; set; }
 
+        [Display(Name = "EndDate")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "Please type End Date.")]
         public DateTime EndDate { get; set; }
 
@@ -52,5 +60,22 @@ namespace SAM.Models
 
         [Required(ErrorMessage = "Please type URL File")]
         public string UrlFile { get; set; }
+
+        public string Result1 { get; set; }
+        public string Comment1 { get; set; }
+        public string Result2 { get; set; }
+        public string Comment2 { get; set; }
+        public string Result3 { get; set; }
+        public string Comment3 { get; set; }
+        public string Result4 { get; set; }
+        public string Comment4 { get; set; }
+        public string Result5 { get; set; }
+        public string Comment5 { get; set; }
+        public string Result6 { get; set; }
+        public string Comment6 { get; set; }
+        public string Result7 { get; set; }
+        public string Comment7 { get; set; }
+
+
     }
 }

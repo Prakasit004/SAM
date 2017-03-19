@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
@@ -11,108 +10,108 @@ using SAM.Models;
 
 namespace SAM.Controllers
 {
-    public class PersonsController : Controller
+    public class OrganizationsController : Controller
     {
         private SAMContext db = new SAMContext();
 
-        // GET: Persons
-        public async Task<ActionResult> Index()
+        // GET: Organizations
+        public ActionResult Index()
         {
-            return View(await db.Persons.ToListAsync());
+            return View(db.Organizations.ToList());
         }
 
-        // GET: Persons/Details/5
-        public async Task<ActionResult> Details(string id)
+        // GET: Organizations/Details/5
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Persons persons = await db.Persons.FindAsync(id);
-            if (persons == null)
+            Organizations organizations = db.Organizations.Find(id);
+            if (organizations == null)
             {
                 return HttpNotFound();
             }
-            return View(persons);
+            return View(organizations);
         }
 
-        // GET: Persons/Create
+        // GET: Organizations/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Persons/Create
+        // POST: Organizations/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Username,Name,Organization,Email,Tel")] Persons persons)
+        public ActionResult Create([Bind(Include = "OrganNo,OrganName,PSUPassport,TitleAdviserName,AdviserName,AdviserLastName,AdviserEmail,AdviserTel,StartPositionDate,EndPositionDate")] Organizations organizations)
         {
             if (ModelState.IsValid)
             {
-                db.Persons.Add(persons);
-                await db.SaveChangesAsync();
+                db.Organizations.Add(organizations);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(persons);
+            return View(organizations);
         }
 
-        // GET: Persons/Edit/5
-        public async Task<ActionResult> Edit(string id)
+        // GET: Organizations/Edit/5
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Persons persons = await db.Persons.FindAsync(id);
-            if (persons == null)
+            Organizations organizations = db.Organizations.Find(id);
+            if (organizations == null)
             {
                 return HttpNotFound();
             }
-            return View(persons);
+            return View(organizations);
         }
 
-        // POST: Persons/Edit/5
+        // POST: Organizations/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Username,Name,Organization,Email,Tel")] Persons persons)
+        public ActionResult Edit([Bind(Include = "OrganNo,OrganName,PSUPassport,TitleAdviserName,AdviserName,AdviserLastName,AdviserEmail,AdviserTel,StartPositionDate,EndPositionDate")] Organizations organizations)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(persons).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+                db.Entry(organizations).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(persons);
+            return View(organizations);
         }
 
-        // GET: Persons/Delete/5
-        public async Task<ActionResult> Delete(string id)
+        // GET: Organizations/Delete/5
+        public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Persons persons = await db.Persons.FindAsync(id);
-            if (persons == null)
+            Organizations organizations = db.Organizations.Find(id);
+            if (organizations == null)
             {
                 return HttpNotFound();
             }
-            return View(persons);
+            return View(organizations);
         }
 
-        // POST: Persons/Delete/5
+        // POST: Organizations/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(string id)
         {
-            Persons persons = await db.Persons.FindAsync(id);
-            db.Persons.Remove(persons);
-            await db.SaveChangesAsync();
+            Organizations organizations = db.Organizations.Find(id);
+            db.Organizations.Remove(organizations);
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 

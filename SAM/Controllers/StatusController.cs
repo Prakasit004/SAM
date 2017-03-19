@@ -10,107 +10,107 @@ using SAM.Models;
 
 namespace SAM.Controllers
 {
-    public class StaffsController : Controller
+    public class StatusController : Controller
     {
         private SAMContext db = new SAMContext();
 
-        // GET: Staffs
+        // GET: Status
         public ActionResult Index()
         {
-            return View(db.Staffs.ToList());
+            return View(db.Status.ToList());
         }
 
-        // GET: Staffs/Details/5
+        // GET: Status/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Staff staff = db.Staffs.Find(id);
-            if (staff == null)
+            Status status = db.Status.Find(id);
+            if (status == null)
             {
                 return HttpNotFound();
             }
-            return View(staff);
+            return View(status);
         }
 
-        // GET: Staffs/Create
+        // GET: Status/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Staffs/Create
+        // POST: Status/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PSUPassport,StaffTitleName,StaffName,StaffLastName,OrganName,Position,StaffEmail,StaffTel")] Staff staff)
+        public ActionResult Create([Bind(Include = "StatusID,StatusName")] Status status)
         {
             if (ModelState.IsValid)
             {
-                db.Staffs.Add(staff);
+                db.Status.Add(status);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(staff);
+            return View(status);
         }
 
-        // GET: Staffs/Edit/5
+        // GET: Status/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Staff staff = db.Staffs.Find(id);
-            if (staff == null)
+            Status status = db.Status.Find(id);
+            if (status == null)
             {
                 return HttpNotFound();
             }
-            return View(staff);
+            return View(status);
         }
 
-        // POST: Staffs/Edit/5
+        // POST: Status/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PSUPassport,StaffTitleName,StaffName,StaffLastName,OrganName,Position,StaffEmail,StaffTel")] Staff staff)
+        public ActionResult Edit([Bind(Include = "StatusID,StatusName")] Status status)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(staff).State = EntityState.Modified;
+                db.Entry(status).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(staff);
+            return View(status);
         }
 
-        // GET: Staffs/Delete/5
+        // GET: Status/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Staff staff = db.Staffs.Find(id);
-            if (staff == null)
+            Status status = db.Status.Find(id);
+            if (status == null)
             {
                 return HttpNotFound();
             }
-            return View(staff);
+            return View(status);
         }
 
-        // POST: Staffs/Delete/5
+        // POST: Status/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Staff staff = db.Staffs.Find(id);
-            db.Staffs.Remove(staff);
+            Status status = db.Status.Find(id);
+            db.Status.Remove(status);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

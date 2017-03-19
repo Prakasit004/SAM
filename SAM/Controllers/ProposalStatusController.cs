@@ -10,107 +10,107 @@ using SAM.Models;
 
 namespace SAM.Controllers
 {
-    public class StaffsController : Controller
+    public class ProposalStatusController : Controller
     {
         private SAMContext db = new SAMContext();
 
-        // GET: Staffs
+        // GET: ProposalStatus
         public ActionResult Index()
         {
-            return View(db.Staffs.ToList());
+            return View(db.ProposalStatus.ToList());
         }
 
-        // GET: Staffs/Details/5
+        // GET: ProposalStatus/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Staff staff = db.Staffs.Find(id);
-            if (staff == null)
+            ProposalStatus proposalStatus = db.ProposalStatus.Find(id);
+            if (proposalStatus == null)
             {
                 return HttpNotFound();
             }
-            return View(staff);
+            return View(proposalStatus);
         }
 
-        // GET: Staffs/Create
+        // GET: ProposalStatus/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Staffs/Create
+        // POST: ProposalStatus/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PSUPassport,StaffTitleName,StaffName,StaffLastName,OrganName,Position,StaffEmail,StaffTel")] Staff staff)
+        public ActionResult Create([Bind(Include = "DocNo,StatusID,PropStatus")] ProposalStatus proposalStatus)
         {
             if (ModelState.IsValid)
             {
-                db.Staffs.Add(staff);
+                db.ProposalStatus.Add(proposalStatus);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(staff);
+            return View(proposalStatus);
         }
 
-        // GET: Staffs/Edit/5
+        // GET: ProposalStatus/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Staff staff = db.Staffs.Find(id);
-            if (staff == null)
+            ProposalStatus proposalStatus = db.ProposalStatus.Find(id);
+            if (proposalStatus == null)
             {
                 return HttpNotFound();
             }
-            return View(staff);
+            return View(proposalStatus);
         }
 
-        // POST: Staffs/Edit/5
+        // POST: ProposalStatus/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PSUPassport,StaffTitleName,StaffName,StaffLastName,OrganName,Position,StaffEmail,StaffTel")] Staff staff)
+        public ActionResult Edit([Bind(Include = "DocNo,StatusID,PropStatus")] ProposalStatus proposalStatus)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(staff).State = EntityState.Modified;
+                db.Entry(proposalStatus).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(staff);
+            return View(proposalStatus);
         }
 
-        // GET: Staffs/Delete/5
+        // GET: ProposalStatus/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Staff staff = db.Staffs.Find(id);
-            if (staff == null)
+            ProposalStatus proposalStatus = db.ProposalStatus.Find(id);
+            if (proposalStatus == null)
             {
                 return HttpNotFound();
             }
-            return View(staff);
+            return View(proposalStatus);
         }
 
-        // POST: Staffs/Delete/5
+        // POST: ProposalStatus/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Staff staff = db.Staffs.Find(id);
-            db.Staffs.Remove(staff);
+            ProposalStatus proposalStatus = db.ProposalStatus.Find(id);
+            db.ProposalStatus.Remove(proposalStatus);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

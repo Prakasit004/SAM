@@ -1,0 +1,90 @@
+﻿@model SAM.Models.Organizations
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Organizations</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrganName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrganName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PSUPassport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PSUPassport)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TitleAdviserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TitleAdviserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdviserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdviserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdviserLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdviserLastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdviserEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdviserEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdviserTel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdviserTel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartPositionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartPositionDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndPositionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndPositionDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OrganNo }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

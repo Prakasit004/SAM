@@ -9,7 +9,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{FA9CFF87-4859-484A-99DD-FFDA612F3501}</ProjectGuid>
+    <ProjectGuid>{0BB29E35-2B4B-4F2D-B17B-ECCE468FD7FB}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -157,29 +157,25 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PersonsController.cs" />
+    <Compile Include="Controllers\OrganizationsController.cs" />
     <Compile Include="Controllers\ProposalsController.cs" />
+    <Compile Include="Controllers\ProposalStatusController.cs" />
     <Compile Include="Controllers\StaffsController.cs" />
+    <Compile Include="Controllers\StatusController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Persons.cs" />
+    <Compile Include="Models\Organizations.cs" />
     <Compile Include="Models\Proposal.cs" />
+    <Compile Include="Models\ProposalStatus.cs" />
     <Compile Include="Models\SAMContext.cs" />
-    <Compile Include="Models\SAMContextPropersal.cs" />
     <Compile Include="Models\Staff.cs" />
-    <Compile Include="Models\StaffSAMContext.cs" />
+    <Compile Include="Models\Status.cs" />
+    <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\person.mdf" />
-    <Content Include="App_Data\person_log.ldf">
-      <DependentUpon>person.mdf</DependentUpon>
-    </Content>
-    <Content Include="App_Data\propersal.mdf" />
-    <Content Include="App_Data\propersal_log.ldf">
-      <DependentUpon>propersal.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -219,23 +215,40 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Persons\Create.cshtml" />
-    <Content Include="Views\Persons\Delete.cshtml" />
-    <Content Include="Views\Persons\Details.cshtml" />
-    <Content Include="Views\Persons\Edit.cshtml" />
-    <Content Include="Views\Persons\Index.cshtml" />
     <Content Include="Views\Proposals\Create.cshtml" />
     <Content Include="Views\Proposals\Delete.cshtml" />
     <Content Include="Views\Proposals\Details.cshtml" />
     <Content Include="Views\Proposals\Edit.cshtml" />
     <Content Include="Views\Proposals\Index.cshtml" />
+    <Content Include="Views\ProposalStatus\Create.cshtml" />
+    <Content Include="Views\ProposalStatus\Delete.cshtml" />
+    <Content Include="Views\ProposalStatus\Details.cshtml" />
+    <Content Include="Views\ProposalStatus\Edit.cshtml" />
+    <Content Include="Views\ProposalStatus\Index.cshtml" />
     <Content Include="Views\Staffs\Create.cshtml" />
     <Content Include="Views\Staffs\Delete.cshtml" />
     <Content Include="Views\Staffs\Details.cshtml" />
     <Content Include="Views\Staffs\Edit.cshtml" />
     <Content Include="Views\Staffs\Index.cshtml" />
+    <Content Include="Views\Status\Create.cshtml" />
+    <Content Include="Views\Status\Delete.cshtml" />
+    <Content Include="Views\Status\Details.cshtml" />
+    <Content Include="Views\Status\Edit.cshtml" />
+    <Content Include="Views\Status\Index.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Organizations\Create.cshtml" />
+    <Content Include="Views\Organizations\Delete.cshtml" />
+    <Content Include="Views\Organizations\Details.cshtml" />
+    <Content Include="Views\Organizations\Edit.cshtml" />
+    <Content Include="Views\Organizations\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -260,9 +273,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>10156</DevelopmentServerPort>
+          <DevelopmentServerPort>40739</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:10156/</IISUrl>
+          <IISUrl>http://localhost:40739/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

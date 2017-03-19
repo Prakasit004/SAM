@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
@@ -13,22 +12,22 @@ namespace SAM.Controllers
 {
     public class ProposalsController : Controller
     {
-        private SAMContextPropersal db = new SAMContextPropersal();
+        private SAMContext db = new SAMContext();
 
         // GET: Proposals
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
-            return View(await db.Proposals.ToListAsync());
+            return View(db.Proposals.ToList());
         }
 
         // GET: Proposals/Details/5
-        public async Task<ActionResult> Details(string id)
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Proposal proposal = await db.Proposals.FindAsync(id);
+            Proposal proposal = db.Proposals.Find(id);
             if (proposal == null)
             {
                 return HttpNotFound();
@@ -47,12 +46,12 @@ namespace SAM.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "DocNo,OrganName,Date,Subject,ActName,StartDate,EndDate,Place,StdBudget,OthName,OthBudget,Total,Act1,Act2,Act3,Act4,Act5,Act6,UrlFile")] Proposal proposal)
+        public ActionResult Create([Bind(Include = "DocNo,OrganName,Date,Subject,ActName,StartDate,EndDate,Place,StdBudget,OthName,OthBudget,Total,Act1,Act2,Act3,Act4,Act5,Act6,UrlFile,Result1,Comment1,Result2,Comment2,Result3,Comment3,Result4,Comment4,Result5,Comment5,Result6,Comment6,Result7,Comment7")] Proposal proposal)
         {
             if (ModelState.IsValid)
             {
                 db.Proposals.Add(proposal);
-                await db.SaveChangesAsync();
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
@@ -60,13 +59,13 @@ namespace SAM.Controllers
         }
 
         // GET: Proposals/Edit/5
-        public async Task<ActionResult> Edit(string id)
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Proposal proposal = await db.Proposals.FindAsync(id);
+            Proposal proposal = db.Proposals.Find(id);
             if (proposal == null)
             {
                 return HttpNotFound();
@@ -79,25 +78,25 @@ namespace SAM.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "DocNo,OrganName,Date,Subject,ActName,StartDate,EndDate,Place,StdBudget,OthName,OthBudget,Total,Act1,Act2,Act3,Act4,Act5,Act6,UrlFile")] Proposal proposal)
+        public ActionResult Edit([Bind(Include = "DocNo,OrganName,Date,Subject,ActName,StartDate,EndDate,Place,StdBudget,OthName,OthBudget,Total,Act1,Act2,Act3,Act4,Act5,Act6,UrlFile,Result1,Comment1,Result2,Comment2,Result3,Comment3,Result4,Comment4,Result5,Comment5,Result6,Comment6,Result7,Comment7")] Proposal proposal)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(proposal).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(proposal);
         }
 
         // GET: Proposals/Delete/5
-        public async Task<ActionResult> Delete(string id)
+        public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Proposal proposal = await db.Proposals.FindAsync(id);
+            Proposal proposal = db.Proposals.Find(id);
             if (proposal == null)
             {
                 return HttpNotFound();
@@ -108,11 +107,11 @@ namespace SAM.Controllers
         // POST: Proposals/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(string id)
         {
-            Proposal proposal = await db.Proposals.FindAsync(id);
+            Proposal proposal = db.Proposals.Find(id);
             db.Proposals.Remove(proposal);
-            await db.SaveChangesAsync();
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 

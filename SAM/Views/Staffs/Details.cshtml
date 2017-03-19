@@ -11,40 +11,64 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.StaffTitleName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayFor(model => model.StaffTitleName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Organization)
+            @Html.DisplayNameFor(model => model.StaffName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Organization)
+            @Html.DisplayFor(model => model.StaffName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Email)
+            @Html.DisplayNameFor(model => model.StaffLastName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Email)
+            @Html.DisplayFor(model => model.StaffLastName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Tel)
+            @Html.DisplayNameFor(model => model.OrganName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Tel)
+            @Html.DisplayFor(model => model.OrganName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Position)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Position)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StaffEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StaffEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StaffTel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StaffTel)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Username }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PSUPassport }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

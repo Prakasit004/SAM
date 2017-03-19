@@ -19,6 +19,18 @@ namespace SAM.Models
         {
         }
 
-        public System.Data.Entity.DbSet<SAM.Models.Persons> Persons { get; set; }
+        
+
+        public System.Data.Entity.DbSet<SAM.Models.Proposal> Proposals { get; set; }
+
+        public System.Data.Entity.DbSet<SAM.Models.ProposalStatus> ProposalStatus { get; set; }
+
+        public System.Data.Entity.DbSet<SAM.Models.Staff> Staffs { get; set; }
+
+        public System.Data.Entity.DbSet<SAM.Models.Status> Status { get; set; }
+
+        public System.Data.Entity.DbSet<SAM.Models.Users> Users { get; set; }
+
+        public System.Data.Entity.DbSet<SAM.Models.Organizations> Organizations { get; set; }
     }
 }
